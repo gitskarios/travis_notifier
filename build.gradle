@@ -30,14 +30,16 @@ repositories {
 	mavenCentral()
 }
 
+bootRun {
+	systemProperties['spring.profiles.active']=project.gradle.startParameter.systemPropertiesArgs['spring.profiles.active'];
+}
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 
 	compile 'com.squareup.retrofit2:retrofit:2.1.0'
 	compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 	compile 'com.squareup.okhttp3:okhttp:3.4.1'
-
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 def getVersionMajor() {

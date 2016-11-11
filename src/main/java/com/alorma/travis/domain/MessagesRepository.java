@@ -1,7 +1,8 @@
 package com.alorma.travis.domain;
 
 import com.alorma.travis.domain.response.MessageResponse;
+import org.springframework.http.ResponseEntity;
 
 public interface MessagesRepository {
-    MessageResponse sendMessage(IssueEvent event) throws Exception;
+    ResponseEntity sendMessage(TravisPayload event) throws Exception;
 }

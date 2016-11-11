@@ -1,25 +1,26 @@
 package com.alorma.travis.domain.response;
 
+import com.alorma.travis.domain.TravisPayload;
+
 public class MessageResponse {
-    private String message_id;
-    private String error;
-    private int code;
     private String topic;
+    private TravisPayload payload;
+    private int code;
 
-    public String getMessage_id() {
-        return message_id;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
-    public void setMessage_id(String message_id) {
-        this.message_id = message_id;
+    public String getTopic() {
+        return topic;
     }
 
-    public String getError() {
-        return error;
+    public TravisPayload getPayload() {
+        return payload;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public void setPayload(TravisPayload payload) {
+        this.payload = payload;
     }
 
     public void setCode(int code) {
@@ -28,13 +29,5 @@ public class MessageResponse {
 
     public int getCode() {
         return code;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public String getTopic() {
-        return topic;
     }
 }

@@ -3,8 +3,8 @@ package com.alorma.travis.domain;
 public class Repository {
     private long id;
     private String name;
-    private String full_name;
-    private User owner;
+    private String owner_name;
+    private String url;
 
     public long getId() {
         return id;
@@ -22,19 +22,19 @@ public class Repository {
         this.name = name;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getOwner_name() {
+        return owner_name;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setOwner_name(String owner_name) {
+        this.owner_name = owner_name;
     }
 
-    public User getOwner() {
-        return owner;
+    public String getUrl() {
+        return url;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

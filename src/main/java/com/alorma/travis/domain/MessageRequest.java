@@ -2,7 +2,7 @@ package com.alorma.travis.domain;
 
 public class MessageRequest {
     private String to;
-    private IssueEvent data;
+    private TravisPayload data;
 
     public String getTo() {
         return to;
@@ -12,11 +12,11 @@ public class MessageRequest {
         this.to = to;
     }
 
-    public IssueEvent getData() {
+    public TravisPayload getData() {
         return data;
     }
 
-    public void setData(IssueEvent data) {
+    public void setData(TravisPayload data) {
         this.data = data;
     }
 }

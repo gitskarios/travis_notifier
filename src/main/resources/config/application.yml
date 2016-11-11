@@ -1,0 +1,2 @@
+fcm:
+    api_key: ${FCM_API_KEY}
