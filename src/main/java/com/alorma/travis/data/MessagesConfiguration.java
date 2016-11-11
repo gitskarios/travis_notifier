@@ -2,12 +2,15 @@ package com.alorma.travis.data;
 
 import com.alorma.travis.domain.MessagesRepository;
 import okhttp3.*;
+import org.apache.catalina.filters.RequestDumperFilter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.servlet.Filter;
 import java.io.IOException;
 
 @Configuration
@@ -54,6 +57,15 @@ public class MessagesConfiguration {
     @Bean(name = {"firebase"})
     public MessagesRepository provideGithubRepository(MessageService issueService) {
         return new FirebaseMessageNotificationRepository(issueService);
+    }
+
+    @Bean
+    public FilterRegistrationBean requestDumperFilter() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        Filter requestDumperFilter = new RequestDumperFilter();
+        registration.setFilter(requestDumperFilter);
+        registration.addUrlPatterns("/*");
+        return registration;
     }
 
 }
