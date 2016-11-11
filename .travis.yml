@@ -7,7 +7,7 @@ deploy:
   provider: heroku
   api_key:
     secure: WdA+w4J9rpTR2IvAnxNTikyOEgbgQe2RACF0mB4XdJpRTuo1y8ngf38SO/d2omzzoYyIRypd6yiAR1LAC+2ZYUVgiti/XbMSEym3vi0WpN3aRpD+Wa3wk0ztCzi0IQpqyAI3EsQYJTHNX2Xi8EraLwHtKHJGBu2BJguTcgrfgdkoG9A9g3XR9B7vtwJ+GQj4Lrh+ZT+tc7HNRG0VG5vbQ6+41ZAONxkZJqqiJoS5dBcWvQPtJ3lnYXfurBwBMQyNUlAyYX6/Rxh48LHdK559T9fKyp+f3oQx2nhs+RoEw0GLcKGkdsXSUXs/sk/IhN5+fhajbS1kRjz2uKbW5cSQp+Jp+ICatDYmBEx6SWTA97sdAxDF/2E2VwdmJ9wuYz+WUgNte8XXwlTwgXilGmp5lmMQs4Rc+znx/rZVUS6It6tVTLK0R8MwNDKaUf1qASAccG1Z3itdQWZLt8jOr3b2nvRNMQtMpMe7Wk39idH8SsNGO08TIx2jXOB8RDuWafF6JwlbNVmxOp/AKSsH9rxHqPutyuULvdRvUtqGvQrbS/ZTzCloUOxOj2Tbru2zTPt8LyD833/WcMjhb1JYglJgUARqN+WCClHYnlV1dCTkeHNmqXgJE6N3Cq9Ivg6L9Zv9f+SJIi7oe7XW6daLFJyrPtiMrdW/lS5yMuwxuVSM72U=
-  app: travis_notifier
+  app: travis-notifier
   on:
     repo: gitskarios/travis_notifier
 notifications:
