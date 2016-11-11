@@ -6,6 +6,7 @@ import com.alorma.travis.domain.response.MessageResponse;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,13 @@ public class MessagesController {
     @Qualifier("firebase")
     private MessagesRepository messagesRepository;
 
-    @RequestMapping(value = "/notifications", method = RequestMethod.POST)
+    @RequestMapping(value = "/notifications", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = {MediaType.APPLICATION_JSON_VALUE})
     public
     @ResponseBody
-    ResponseEntity<MessageResponse> handleMessage(@RequestBody TravisPayload event) throws Exception {
+    ResponseEntity<MessageResponse> handleMessage(@RequestParam("payload") String payload) throws Exception {
+        TravisPayload event = new Gson().fromJson(payload, TravisPayload.class);
         sendLog(event);
         return messagesRepository.sendMessage(event);
     }
