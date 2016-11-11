@@ -24,7 +24,7 @@ public class MessagesController {
     @ResponseBody
     ResponseEntity<MessageResponse> handleMessage(@RequestParam("payload") String payload) throws Exception {
         TravisPayload event = new Gson().fromJson(payload, TravisPayload.class);
-        sendLog(event);
+        //sendLog(event);
         return messagesRepository.sendMessage(event);
     }
 

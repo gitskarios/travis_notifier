@@ -59,6 +59,7 @@ public class MessagesConfiguration {
         return new FirebaseMessageNotificationRepository(issueService);
     }
 
+    /*
     @Bean
     public FilterRegistrationBean requestDumperFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
@@ -67,5 +68,5 @@ public class MessagesConfiguration {
         registration.addUrlPatterns("/*");
         return registration;
     }
-
+    */
 }
