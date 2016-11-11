@@ -14,10 +14,15 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
+def versionMajor=getVersionMajor()
+def versionMinor=getVersionMinor()
+def versionPatch=getVersionPatch()
+
 jar {
 	baseName = 'travis'
-	version = '0.0.1-SNAPSHOT'
+	version = "$versionMajor.$versionMinor.$versionPatch"
 }
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -25,8 +30,37 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+def getVersionMajor() {
+	def content = file('version.properties')
+
+	Properties properties = new Properties()
+	InputStream is = new ByteArrayInputStream(content.getBytes());
+	properties.load(is)
+
+	return properties['VERSION_MAJOR'].toInteger()
+}
+
+def getVersionMinor() {
+	def content = file('version.properties')
+
+	Properties properties = new Properties()
+	InputStream is = new ByteArrayInputStream(content.getBytes());
+	properties.load(is)
+
+	return properties['VERSION_MINOR'].toInteger()
+}
+
+def getVersionPatch() {
+	def content = file('version.properties')
+
+	Properties properties = new Properties()
+	InputStream is = new ByteArrayInputStream(content.getBytes());
+	properties.load(is)
+
+	return properties['VERSION_PATCH'].toInteger()
 }
