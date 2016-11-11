@@ -1,8 +1,15 @@
 language: java
-
 jdk:
- - oraclejdk8
-
+- oraclejdk8
 before_script: chmod +x gradlew
-
 script: ./gradlew build
+deploy:
+  provider: releases
+  api_key:
+    secure: JaEppdBIweLYTjAWTjJoMMmwb0qcwSdPl0k//5+elbgLk1JCGlu0tVgGOrnPWOWkOM7gvdLZY18b+PPbNuoAaL0v0WjtO1W2Xw4DWUIBx3nRjmLLRGJeshmdmkx+kelsiLzXe8He5vgHsZjgMb5CUiD7HX6Lq246SkLYTk2uvZ5fmiE+VhDovYR/gzV/zIi491DC+Nm9P5rgTlfRXEkRD6+L/lAVNnkGCkQoELPbiLiJjox5L+JL7O0m5VfSKzuG4Xfds6+Lwyd9GkpjZWNNs/ZGsUkDpXMGOKyme+RlEd0IvykPDVEbOq8QmJtWj1uaRxbwMuB5mnxYBxjorw9/AT50+qFahssMckKjb9pvF04//IJnAsWNEOMCOIPGR/7tFLTf5Lb56RPhM2JXCF0d9/X9hFzGBVd55Gf8rwpyEmS2KkvDXbQvFF9hHRCWvOVA5YbTiTgKSqib9erJoT7V332B0YXPWJoyNuRt6BSg91gFp9JjVFKlUmjbRgWDU0HuQ0Ze1frjh5rrftDrUZVwTDhkocZjT0BCyH8bhy0gaC4ImeBGYUa5+vRn2fekvc0UC6C8nZsAb1TAG06zKWoFawblfrs1OhoNm9fLiAdK3K/d/1yitVoWhldMbyNzc+3yEvE1A9vaTzHTkG9pPaEZ0RaaYuFdwIum8h/if3DUYCg=
+  file: build/libs/*.jar
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    repo: gitskarios/travis_notifier
